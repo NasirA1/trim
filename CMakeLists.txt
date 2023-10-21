@@ -6,6 +6,7 @@ set(SOURCE src/main.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE})
 
+# required for external libraries
 #target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/string_helper/inc)
 #target_link_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/string_helper/build)
 
@@ -14,3 +15,4 @@ target_link_libraries(${PROJECT_NAME} PRIVATE string_helper)
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
 add_subdirectory(string_helper)
+add_subdirectory(external/glfw)
