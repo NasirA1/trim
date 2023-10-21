@@ -33,19 +33,15 @@ endif()
 #############################################################
 
 
-add_subdirectory(external/glfw)
-
 target_include_directories(${PROJECT_NAME}
     PUBLIC ${PROJECT_BINARY_DIR}
     PUBLIC string_helper
-    PUBLIC external/glfw/include
 )
 
 target_link_directories(${PROJECT_NAME}
     PRIVATE string_helper
-    PRIVATE external/glfw/src
 )
 
-target_link_libraries(${PROJECT_NAME} string_helper glfw)
+target_link_libraries(${PROJECT_NAME} string_helper)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
