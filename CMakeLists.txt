@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
-project(trim)
+project(trim VERSION 1.0)
 set(CMAKE_CXX_STANDARD 14)
+configure_file(inc/trim_config.h.in trim_config.h)
 
 set(SOURCE src/main.cpp)
 
@@ -13,7 +14,7 @@ add_subdirectory(string_helper)
 find_package(Git QUIET)
 if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
 # Update submodules as needed
-    option(GIT_SUBMODULE "Check submodules during build" ON)
+    option(GIT_SUBMODULE "Check submodules durin#define trim_VERSION_MAJOR  @trim_VERSION_MAJOR@g build" ON)
     if(GIT_SUBMODULE)
         message(STATUS "Submodule update")
         execute_process(COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive
@@ -35,6 +36,7 @@ endif()
 add_subdirectory(external/glfw)
 
 target_include_directories(${PROJECT_NAME}
+    PUBLIC ${PROJECT_BINARY_DIR}
     PUBLIC string_helper
     PUBLIC external/glfw/include
 )
