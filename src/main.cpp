@@ -1,6 +1,6 @@
 #include <iostream>
 #include <sstream>
-#include "string_helper/string_helper.h"
+#include "string_helper.h"
 
 int main(int argc, char* argv[])
 {    

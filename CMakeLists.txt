@@ -12,3 +12,5 @@ add_executable(${PROJECT_NAME} ${SOURCE})
 target_link_libraries(${PROJECT_NAME} PRIVATE string_helper)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+
+add_subdirectory(string_helper)

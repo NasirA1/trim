@@ -1,4 +1,6 @@
-#! bin/sh
+#! /bin/sh
 
-rm -rf trim/build/*
+rm -rf out/build/*
+cmake -S . -B out/build
+
 
