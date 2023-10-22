@@ -1,20 +1,31 @@
 cmake_minimum_required(VERSION 3.13)
-project(trim VERSION 1.0)
-set(CMAKE_CXX_STANDARD 14)
-configure_file(inc/trim_config.h.in trim_config.h)
+project(cmake_test)
 
-set(SOURCE src/main.cpp)
+add_executable(cmake_test main.cpp)
 
-add_executable(${PROJECT_NAME} ${SOURCE})
-
-add_subdirectory(calc)
-add_subdirectory(string_helper)
-
-target_include_directories(${PROJECT_NAME}
-    PRIVATE ${PROJECT_BINARY_DIR}
-    PRIVATE string_helper
+# build-level custom command: make run_custom_command
+add_custom_target(run_custom_script
+    COMMAND ${CMAKE_COMMAND} -E echo "Running custom script..."
+    COMMAND ${CMAKE_COMMAND} -E echo "Custom script completed."
+    COMMENT "Running a custom script"
 )
 
-target_link_libraries(${PROJECT_NAME} string_helper)
+message(STATUS "Hello, CMake world!")
 
-install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+# cmake config level custom command
+execute_process(
+    COMMAND echo "Hello, CMake world!"
+    RESULT_VARIABLE result
+    OUTPUT_VARIABLE output
+    ERROR_VARIABLE error
+)
+
+# Check the result of the executed command
+if(result EQUAL 0)
+    message("Command executed successfully.")
+    message("Output: ${output}")
+else()
+    message("Command failed with error code ${result}")
+    message("Error: ${error}")
+endif()
+
