@@ -3,6 +3,13 @@ project(trim VERSION 1.0)
 set(CMAKE_CXX_STANDARD 14)
 configure_file(inc/trim_config.h.in trim_config.h)
 
+option(EMULATION "Emulation Mode" OFF)
+
+if(${EMULATION})
+    message(STATUS "Emulation mode is ON.")
+    add_definitions(-DEMULATION)
+endif()
+
 set(SOURCE src/main.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE})
