@@ -7,14 +7,11 @@ set(SOURCE src/main.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE})
 
+add_subdirectory(calc)
 add_subdirectory(string_helper)
 
 target_include_directories(${PROJECT_NAME}
-    PUBLIC ${PROJECT_BINARY_DIR}
-    PUBLIC string_helper
-)
-
-target_link_directories(${PROJECT_NAME}
+    PRIVATE ${PROJECT_BINARY_DIR}
     PRIVATE string_helper
 )
 

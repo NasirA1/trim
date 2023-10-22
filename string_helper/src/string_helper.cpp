@@ -1,5 +1,6 @@
 #include "string_helper.h"
 #include <sstream>
+#include "calc.h"
 
 namespace string_helper
 {
@@ -30,5 +31,13 @@ namespace string_helper
             }
         }
         return oss.str();
+    }
+
+    std::string sadd(const std::string& a, const std::string& b)
+    {
+        auto num1 = atoi(a.c_str());
+        auto num2 = atoi(b.c_str());
+        auto result = calc::add(num1, num2);
+        return std::to_string(result);
     }
 }
