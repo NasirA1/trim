@@ -1,4 +1,4 @@
 #! /bin/sh
 
 rm -rf out/build/*
-cmake -S . -B out/build
+cmake -DEMULATION=ON -S . -B out/build
