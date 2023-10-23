@@ -1,8 +1,13 @@
-#include <iostream>
+#include <gtest/gtest.h>
 
-int main(int argc, char* argv[])
+
+TEST(MyTestSuite, MyTestCase1)
 {
-	std::cout << "hello" << std::endl;
-	return EXIT_SUCCESS;
+	EXPECT_TRUE(1 == 1);
 }
 
+int main(int argc, char **argv) 
+{
+    ::testing::InitGoogleTest(&argc, argv); 
+    return RUN_ALL_TESTS();
+}
