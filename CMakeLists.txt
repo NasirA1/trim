@@ -1,15 +1,17 @@
 cmake_minimum_required(VERSION 3.13.4)
 project(tester)
 
-add_executable(tester main.cpp)
+# Use find_package to locate and configure the Boost C++ Libraries
+find_package(Boost REQUIRED)
 
-find_library(GTEST_LIB gtest)
-
-if(${GTEST_LIB} STREQUAL GTEST_LIB-NOTFOUND)
-    message(FATAL_ERROR "ERROR: Unable to find googletest library. Clone, build and install it.")
+# Check if Boost was found
+if(Boost_FOUND)
+    message("Boost found!")
+    message("Boost include directories: ${Boost_INCLUDE_DIRS}")
+    message("Boost libraries: ${Boost_LIBRARIES}")
 else()
-    get_filename_component(GTEST_LIB_LOCATION ${GTEST_LIB} DIRECTORY)
-    message(STATUS "googletest library found in: ${GTEST_LIB_LOCATION}")
-    target_include_directories(${PROJECT_NAME} PRIVATE ${GTEST_LIB_LOCATION}/../../include)
-    target_link_libraries(${PROJECT_NAME} ${GTEST_LIB} pthread)
+    message(FATAL_ERROR "Boost not found. Please install it or provide Boost's CMake configuration.\nHint: sudo apt-get install libboost-dev")
 endif()
+
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} pthread)

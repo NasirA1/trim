@@ -1,13 +1,15 @@
-#include <gtest/gtest.h>
+#include <iostream>
+#include <boost/asio.hpp>
 
-
-TEST(MyTestSuite, MyTestCase1)
+int main()
 {
-	EXPECT_TRUE(1 == 1);
-}
+  boost::asio::io_context io;
 
-int main(int argc, char **argv) 
-{
-    ::testing::InitGoogleTest(&argc, argv); 
-    return RUN_ALL_TESTS();
+  boost::asio::steady_timer t(io, boost::asio::chrono::seconds(5));
+  std::cout << "timer waiting for 5 seconds ...\n";
+  t.wait();
+
+  std::cout << "Hello, world!" << std::endl;
+
+  return 0;
 }
