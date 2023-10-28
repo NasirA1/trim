@@ -3,7 +3,7 @@
 
 #pragma once
 
-namespace arithmetic
+namespace calc
 {
     template<class T>
     T add(T a, T b)
