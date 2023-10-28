@@ -6,4 +6,10 @@ add_library(${PROJECT_NAME} src/string_helper.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 
-install(TARGETS ${PROJECT_NAME} DESTINATION lib)
+set_target_properties(${PROJECT_NAME} PROPERTIES 
+    PUBLIC_HEADER "include/string_helper.h;"
+)
+install(TARGETS ${PROJECT_NAME} 
+    LIBRARY DESTINATION lib
+    PUBLIC_HEADER DESTINATION include/${PROJECT_NAME}
+)

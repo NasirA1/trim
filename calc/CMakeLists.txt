@@ -7,4 +7,9 @@ add_library(${PROJECT_NAME} INTERFACE)
 
 target_include_directories(${PROJECT_NAME} INTERFACE include)
 
-install(TARGETS ${PROJECT_NAME} DESTINATION include)
+set_target_properties(${PROJECT_NAME} PROPERTIES 
+    PUBLIC_HEADER "include/arithmetic.h;"
+)
+install(TARGETS ${PROJECT_NAME} 
+    PUBLIC_HEADER DESTINATION include/${PROJECT_NAME}
+)
