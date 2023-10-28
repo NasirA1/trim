@@ -5,7 +5,11 @@
 
 namespace arithmetic
 {
-    int add(int a, int b);
+    template<class T>
+    T add(T a, T b)
+    {
+        return a + b;
+    }
 };
 
 #endif
