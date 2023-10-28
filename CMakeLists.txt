@@ -5,3 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(${PROJECT_NAME} main.cpp)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+
+
+add_subdirectory(calc)
+add_subdirectory(util)
