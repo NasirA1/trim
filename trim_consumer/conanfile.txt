@@ -1,0 +1,5 @@
+[requires]
+trim/1.0.0@nasir/wip
+
+[generators]
+cmake
