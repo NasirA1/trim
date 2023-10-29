@@ -28,6 +28,7 @@ class TrimConan(ConanFile):
         cmake.install()
 
     def package_info(self):
+        # self.cpp_info.libs = ["libutil.a", "libai.a"]
         self.cpp_info.names["cmake_find_package"] = "trim"
         self.cpp_info.names["cmake_find_package_multi"] = "trim"
         self.cpp_info.components["ai"].names["cmake_find_package"] = "ai"
