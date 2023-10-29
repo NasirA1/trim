@@ -10,12 +10,13 @@ class TrimConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
-
-    exports_sources = "include/*", "CMakeLists.txt", "src/*"
+    
+    exports = "include/*", "src/*", "CMakeLists.txt"
+    exports_sources = "ai", "calc", "util"
 
     def source(self):
         self.run("git clone https://github.com/NasirA1/trim")
-        self.run("cd trim && git checkout conan_tut2")
+        self.run("cd trim && git checkout conan_tut3")
 
     def build(self):
         cmake = CMake(self)
@@ -27,4 +28,4 @@ class TrimConan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["libutil.a"]
+        self.cpp_info.libs = ["libutil.a", "libai.a"]
