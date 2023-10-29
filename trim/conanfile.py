@@ -19,7 +19,7 @@ class TrimConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(source_folder="trim")
+        cmake.configure(source_folder="trim/trim")
         cmake.build()
 
     def package(self):
@@ -27,4 +27,4 @@ class TrimConan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["trim"]
+        self.cpp_info.libs = ["libutil.a"]

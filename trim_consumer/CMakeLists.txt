@@ -7,7 +7,10 @@ conan_basic_setup()
 
 add_executable(${PROJECT_NAME} src/main.cpp)
 
-target_include_directories(${PROJECT_NAME} PRIVATE include/calc include/util)
+target_include_directories(${PROJECT_NAME} PRIVATE 
+    ${CONAN_TRIM_ROOT}/include/calc 
+    ${CONAN_TRIM_ROOT}/include/util
+)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${CONAN_LIBS})
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
