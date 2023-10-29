@@ -1,5 +1,10 @@
 [requires]
 trim/1.0.0@nasir/wip
 
+[options]
+trim:ai=False
+trim:calc=True
+trim:util=True
+
 [generators]
 cmake
