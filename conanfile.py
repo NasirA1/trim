@@ -21,6 +21,7 @@ class TrimConan(ConanFile):
         cmake = CMake(self)
         cmake.configure(source_folder="trim")
         cmake.build()
+        cmake.install()
 
     def package(self):
         self.copy("*.h", dst="include", src="trim/include")
