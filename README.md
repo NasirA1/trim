@@ -1,2 +1,2 @@
 # trim
-CMake revision
+Conan practice
