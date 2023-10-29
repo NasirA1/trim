@@ -6,7 +6,7 @@
 
 namespace adjacency_list
 {
-  void print_graph(const std::map<int, std::list<int>>& graph, const char** const labels) {
+  void print_graph(const graph_t& graph, const char** const labels) {
     for (const auto& node : graph) {
       std::cout << labels[node.first] << ": ";
       for (auto neighbour : node.second) {
@@ -17,7 +17,7 @@ namespace adjacency_list
     }
   }
 
-  void bfs(std::map<int, std::list<int>>& graph, const char** const labels) {
+  void bfs(graph_t& graph, const char** const labels) {
     std::unordered_set<int> visited;
     std::queue<int> nodes;
     nodes.push(0);
@@ -35,7 +35,7 @@ namespace adjacency_list
     }
   }
 
-  void dfs(std::map<int, std::list<int>>& graph, const char** const labels) {
+  void dfs(graph_t& graph, const char** const labels) {
     std::unordered_set<int> visited;
     std::stack<int> nodes;
     nodes.push(0);

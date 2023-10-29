@@ -8,9 +8,10 @@
 
 namespace adjacency_list
 {
-  void print_graph(const std::map<int, std::list<int>>& graph, const char** const labels);
-  void bfs(std::map<int, std::list<int>>& graph, const char** const labels);
-  void dfs(std::map<int, std::list<int>>& graph, const char** const labels);
+  using graph_t = std::map<int, std::list<int>>;
+  void print_graph(const graph_t& graph, const char** const labels);
+  void bfs(graph_t& graph, const char** const labels);
+  void dfs(graph_t& graph, const char** const labels);
 }
 
 #endif
