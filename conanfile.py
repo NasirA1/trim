@@ -21,11 +21,10 @@ class TrimConan(ConanFile):
         cmake = CMake(self)
         cmake.configure(source_folder="trim")
         cmake.build()
-        cmake.install()
 
     def package(self):
-        self.copy("*.h", dst="include", src="trim/include")
-        self.copy("*trim.a", dst="lib", keep_path=False)
+        cmake = CMake(self)
+        cmake.install()
 
     def package_info(self):
         self.cpp_info.libs = ["trim"]
