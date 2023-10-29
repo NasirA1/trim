@@ -27,7 +27,7 @@ namespace adjacency_list
       if (visited.find(current) == visited.end()) {
         visited.insert(current);
         std::cout << labels[current];
-        if (visited.size() < graph.size()) cout << "->"; else cout << std::endl;
+        if (visited.size() < graph.size()) std::cout << "->"; else std::cout << std::endl;
         for (auto neighbour : graph[current]) {
           nodes.push(neighbour);
         }
