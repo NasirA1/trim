@@ -6,7 +6,7 @@
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/util/include",
                 "${workspaceFolder}/calc/include",
-                "~/.conan/data/**"
+                "${workspaceFolder}/ai/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

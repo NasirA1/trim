@@ -11,3 +11,4 @@ install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
 add_subdirectory(calc)
 add_subdirectory(util)
+add_subdirectory(ai)
