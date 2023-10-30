@@ -7,9 +7,12 @@ add_library(${PROJECT_NAME} INTERFACE)
 
 target_include_directories(${PROJECT_NAME} INTERFACE include)
 
-set_target_properties(${PROJECT_NAME} PROPERTIES 
-    PUBLIC_HEADER "include/arithmetic.h;"
-)
-install(TARGETS ${PROJECT_NAME} 
-    PUBLIC_HEADER DESTINATION include/${PROJECT_NAME}
+#set_target_properties(${PROJECT_NAME} PROPERTIES
+#    PUBLIC_HEADER "include/arithmetic.h;"
+#)
+#install(TARGETS ${PROJECT_NAME}
+#    PUBLIC_HEADER DESTINATION include/${PROJECT_NAME}
+#)
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/arithmetic.h"
+    DESTINATION include/${PROJECT_NAME}
 )

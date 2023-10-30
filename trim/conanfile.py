@@ -10,9 +10,13 @@ class TrimConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
-    
+
+    generators = "cmake"
     exports = "include/*", "src/*", "CMakeLists.txt"
-    exports_sources = "ai", "calc", "util"
+    build_requires = (
+        "cmake/3.27.7",
+    )
+
 
     def source(self):
         self.run("git clone https://github.com/NasirA1/trim")
