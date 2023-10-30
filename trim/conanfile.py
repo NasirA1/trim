@@ -12,7 +12,7 @@ class TrimConan(ConanFile):
     default_options = "shared=False"
 
     generators = "cmake"
-    export_source = "include/*", "src/*", "CMakeLists.txt", "*.cmake"
+    exports_sources = "include/*", "src/*", "CMakeLists.txt", "*.cmake"
 
     build_requires = (
         "cmake/3.27.7",
