@@ -45,6 +45,6 @@ if(NOT trim_FOUND)
     else()
         # Library or its components not found
         set(trim_FOUND FALSE)
-        message(STATUS "OOPS! trim library and/or components not found.")
+        message(STATUS "OOPS! trim library and/or components not found.")cmake_find_package
     endif()
 endif()
