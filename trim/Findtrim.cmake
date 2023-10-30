@@ -8,7 +8,7 @@ foreach(component ${trim_COMPONENTS})
     add_library(trim::${component} INTERFACE IMPORTED)
     target_include_directories(trim::${component} INTERFACE ${CONAN_TRIM_ROOT}/include/${component})
     if(NOT ${component} STREQUAL "calc")  ## calc is header-only
-        target_link_libraries(trim::${component} INTERFACE ${CONAN_TRIM_ROOT}/lib/lib${component}.a)
+        target_link_libraries(trim::${component} INTERFACE ${component})
     endif()    
 endforeach()
 
