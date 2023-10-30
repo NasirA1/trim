@@ -32,7 +32,7 @@ class TrimConan(ConanFile):
     def package(self):
         cmake = CMake(self)
         cmake.install()
-        # self.copy("Findtrim.cmake", ".", ".")
+        self.copy("Findtrim.cmake", ".", ".")
 
     def package_info(self):
         self.cpp_info.names["cmake_find_package"] = "trim"
