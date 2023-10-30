@@ -7,7 +7,14 @@ conan_basic_setup()
 
 add_executable(${PROJECT_NAME} src/main.cpp)
 
-find_package(trim REQUIRED)
+find_package(trim REQUIRED COMPONENTS calc util)
+if(trim_FOUND)
+    message("trim library found!")
+    message("trim include directories: ${trim_INCLUDE_DIRS}")
+    message("trim libraries: ${trim_LIBRARIES}")
+else()
+    message(FATAL_ERROR "trim library not found!")
+endif()
 
 # target_include_directories(${PROJECT_NAME} PRIVATE 
 #     ${CONAN_TRIM_ROOT}/include/calc 

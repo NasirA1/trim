@@ -1,4 +1,5 @@
 from conans import ConanFile, CMake, tools
+import os
 
 class TrimConan(ConanFile):
     name = "trim"
@@ -11,7 +12,7 @@ class TrimConan(ConanFile):
     options = {"shared": [True, False]}
     default_options = "shared=False"
 
-    generators = "cmake"
+    generators = "cmake_find_package"
     exports_sources = "include/*", "src/*", "CMakeLists.txt", "*.cmake"
 
     build_requires = (
@@ -31,9 +32,9 @@ class TrimConan(ConanFile):
     def package(self):
         cmake = CMake(self)
         cmake.install()
+        self.copy("Findtrim.cmake", ".", ".")
 
     def package_info(self):
-        # self.cpp_info.libs = ["libutil.a", "libai.a"]
         self.cpp_info.names["cmake_find_package"] = "trim"
         self.cpp_info.names["cmake_find_package_multi"] = "trim"
         self.cpp_info.components["ai"].names["cmake_find_package"] = "ai"
