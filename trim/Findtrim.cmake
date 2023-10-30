@@ -1,5 +1,3 @@
-message(STATUS "Searching for trim ...")
-
 set(trim_FOUND TRUE)
 
 # List of components
