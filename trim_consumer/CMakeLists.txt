@@ -14,7 +14,6 @@ else()
     message(FATAL_ERROR "trim library not found!")
 endif()
 
-target_include_directories(${PROJECT_NAME} PRIVATE trim::calc trim::util)
-target_link_libraries(${PROJECT_NAME} PRIVATE trim::util)
+target_link_libraries(${PROJECT_NAME} PRIVATE trim::util trim::calc)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)

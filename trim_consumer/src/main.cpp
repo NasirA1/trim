@@ -1,6 +1,6 @@
 #include <iostream>
-#include "calc/arithmetic.h"
-#include "util/string_helper.h"
+#include "arithmetic.h"
+#include "string_helper.h"
 
 int main(int argc, char* argv[])
 {    
