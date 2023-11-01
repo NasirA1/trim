@@ -1,18 +1,14 @@
 cmake_minimum_required(VERSION 3.13)
-project(trim_test)
-set(CMAKE_CXX_STANDARD 14)
+project(root)
 
-add_executable(${PROJECT_NAME} main.cpp)
+if (NOT TARGET calc)
+  add_subdirectory(calc)
+endif ()
 
-target_include_directories(${PROJECT_NAME} PRIVATE 
-    calc/include 
-    util/include
-    ai/include
-)
-target_link_libraries(${PROJECT_NAME} PRIVATE util ai)
+if (NOT TARGET util)
+  add_subdirectory(util)
+endif ()
 
-install(TARGETS ${PROJECT_NAME} DESTINATION bin)
-
-add_subdirectory(calc)
-add_subdirectory(util)
-add_subdirectory(ai)
+if (NOT TARGET ai)
+  add_subdirectory(ai)
+endif ()
