@@ -6,10 +6,19 @@ set(trim_COMPONENTS ai calc util)
 # Set the components as imported targets
 foreach(component ${trim_COMPONENTS})
     add_library(trim::${component} INTERFACE IMPORTED)
-    target_include_directories(trim::${component} INTERFACE ${CONAN_TRIM_ROOT}/include/${component})
+#    target_include_directories(trim::${component} INTERFACE ${CONAN_TRIM_ROOT}/include/${component})
+#    if(NOT ${component} STREQUAL "calc")  ## calc is header-only
+#        target_link_libraries(trim::${component} INTERFACE ${component})
+#    endif()
+    set_target_properties(trim::${component} PROPERTIES
+        INTERFACE_INCLUDE_DIRECTORIES ${CONAN_TRIM_ROOT}/include/${component}
+    )
     if(NOT ${component} STREQUAL "calc")  ## calc is header-only
-        target_link_libraries(trim::${component} INTERFACE ${component})
-    endif()    
+        set_target_properties(trim::${component} PROPERTIES
+            #IMPORTED_LOCATION ${CONAN_TRIM_ROOT}/lib/${component}
+            IMPORTED_LOCATION ${component}
+        )
+    endif()
 endforeach()
 
 # Provide information about trim library and its components
