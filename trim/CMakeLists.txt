@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(root)
+project(trim)
 
 if (NOT TARGET calc)
   add_subdirectory(calc)

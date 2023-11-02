@@ -33,18 +33,3 @@ class TrimConan(ConanFile):
         cmake = CMake(self)
         cmake.install()
         self.copy("Findtrim.cmake", ".", ".")
-
-    def package_info(self):
-        self.cpp_info.names["cmake_find_package"] = "trim"
-        self.cpp_info.names["cmake_find_package_multi"] = "trim"
-        
-        self.cpp_info.components["ai"].names["cmake_find_package"] = "ai"
-        self.cpp_info.components["ai"].libs = "libai"
-        self.cpp_info.components["ai"].includedirs = "include/ai"
-        
-        self.cpp_info.components["util"].names["cmake_find_package"] = "util"
-        self.cpp_info.components["util"].libs = "libutil"
-        self.cpp_info.components["util"].includedirs = "include/util"
-
-        self.cpp_info.components["calc"].names["cmake_find_package"] = "calc"
-        self.cpp_info.components["calc"].includedirs = "include/calc"
