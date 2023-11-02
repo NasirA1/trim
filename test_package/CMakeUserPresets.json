@@ -1,9 +1,0 @@
-{
-    "version": 4,
-    "vendor": {
-        "conan": {}
-    },
-    "include": [
-        "/home/nasir/Desktop/reusable_stuff/test_package/build/generators/CMakePresets.json"
-    ]
-}
