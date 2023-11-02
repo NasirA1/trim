@@ -1,7 +1,14 @@
-cmake_minimum_required(VERSION 3.13)
-project(trim)
-set(CMAKE_CXX_STANDARD 14)
+cmake_minimum_required(VERSION 3.5)
+project(reusable_stuff)
 
-add_executable(${PROJECT_NAME} main.cpp)
+if (NOT TARGET calc)
+  add_subdirectory(calc)
+endif ()
 
-install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+if (NOT TARGET util)
+  add_subdirectory(util)
+endif ()
+
+if (NOT TARGET ai)
+  add_subdirectory(ai)
+endif ()
