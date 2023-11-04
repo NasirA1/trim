@@ -10,6 +10,7 @@ class ReusableStuffTestConan(ConanFile):
     generators = "CMakeDeps", "CMakeToolchain", "VirtualBuildEnv", "VirtualRunEnv"
     apply_env = False
     test_type = "explicit"
+    build_requires = "cmake/3.27.7"
 
     def requirements(self):
         self.requires(self.tested_reference_str)
