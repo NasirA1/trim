@@ -19,7 +19,7 @@ class ReusableStuffConan(ConanFile):
 
     # Sources are located in the same place as this recipe, copy them to the recipe
     exports_sources = "CMakeLists.txt", "ai/*", "calc/*", "util/*"
-    generators = "CMakeDeps", "CMakeToolchain", "VirtualBuildEnv", "VirtualRunEnv"
+    generators = "CMakeDeps", "CMakeToolchain", "VirtualBuildEnv"
     build_requires = "cmake/3.27.7"
 
 
