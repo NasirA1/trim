@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.1)
+project(test_consumer)
+find_package(reusable_stuff REQUIRED COMPONENTS util)
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} reusable_stuff::util)
